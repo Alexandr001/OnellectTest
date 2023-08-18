@@ -1,11 +1,10 @@
 ﻿using System.Reflection;
-using BindingFlags = System.Reflection.BindingFlags;
 
 namespace TestOnellect.Sorting;
 
-public class SortFactory
+public static class SortFactory
 {
-	public static ISorting FactoryMethod()
+	public static ISorting GetSorting()
 	{
 		Type[] types = Assembly.GetExecutingAssembly().GetTypes();
 		List<ISorting> list = types.Where(t => 

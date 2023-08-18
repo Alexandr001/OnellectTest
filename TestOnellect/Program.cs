@@ -1,16 +1,29 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
 using TestOnellect;
+using TestOnellect.Services;
+using TestOnellect.Services.Implementation;
 using TestOnellect.Sorting;
 
-Console.WriteLine("Hello, World!");
+IHttpService httpService = new HttpService();
+
 int[] array = CreateArray();
+Settings? settings = Settings.GetSettings();
+if (settings == null) {
+	Console.WriteLine("Не удалось дессериализовать json!");
+	return;
+}
 
-ISorting factory = SortFactory.FactoryMethod();
-factory.Sort(array);
+Console.WriteLine("Созданный массив:");
+PrintArray(array);
 
+ISorting factory = SortFactory.GetSorting();
+int[] sortedArray = factory.Sort(array);
 
+Console.WriteLine("Отсортированный массив: ");
+PrintArray(sortedArray);
 
+httpService.SendPost(settings.ServerUrl, sortedArray);
 
 int[] CreateArray()
 {
@@ -22,4 +35,12 @@ int[] CreateArray()
 		values[i] = random.Next(Settings.MIN_VALUE, Settings.MAX_VALUE);
 	}
 	return values;
+}
+
+void PrintArray<T>(T[] arr)
+{
+	foreach (T value in arr) {
+		Console.Write(value + " ");
+	}
+	Console.WriteLine('\n');
 }
