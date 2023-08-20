@@ -6,8 +6,12 @@ public class HttpService : IHttpService
 {
 	public async Task<int> SendPost<T>(string url, T model)
 	{
-		HttpClient client = new();
-		HttpResponseMessage response = await client.PostAsJsonAsync(url, model);
-		return (int) response.StatusCode;
+		try {
+			HttpClient client = new();
+			HttpResponseMessage response = await client.PostAsJsonAsync(url, model);
+			return (int) response.StatusCode;
+		} catch (Exception e) {
+			return 0;
+		}
 	}
 }

@@ -11,7 +11,6 @@ public class Settings
 	public const int MIN_VALUE = -100;
 	public const int MAX_VALUE = 100;
 	
-	
 	public string ServerUrl { get; private set; } = string.Empty;
 
 	public static Settings? GetSettings()

@@ -4,7 +4,7 @@ namespace TestOnellect.Sorting;
 
 public static class SortFactory
 {
-	public static ISorting GetSorting()
+	public static ISorting GetRandomSorting()
 	{
 		Type[] types = Assembly.GetExecutingAssembly().GetTypes();
 		List<ISorting> list = types.Where(t => 
