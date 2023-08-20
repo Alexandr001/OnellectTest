@@ -2,5 +2,5 @@
 
 public interface ISorting
 {
-	int[] Sort(int[] arr);
+	Task<int[]> Sort(int[] arr);
 }

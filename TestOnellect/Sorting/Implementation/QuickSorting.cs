@@ -2,7 +2,7 @@
 
 public class QuickSorting : ISorting
 {
-	public int[] Sort(int[] arr)
+	public async Task<int[]> Sort(int[] arr)
 	{
 		Console.WriteLine(nameof(QuickSorting));
 		int[] sortArr = QuickSort(arr, 0, arr.Length - 1);

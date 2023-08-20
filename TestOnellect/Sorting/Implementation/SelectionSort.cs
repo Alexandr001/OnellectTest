@@ -1,8 +1,10 @@
-﻿namespace TestOnellect.Sorting.Implementation;
+﻿using System.Runtime.CompilerServices;
+
+namespace TestOnellect.Sorting.Implementation;
 
 public class SelectionSort : ISorting
 {
-	public int[] Sort(int[] arr)
+	public async Task<int[]> Sort(int[] arr)
 	{
 		Console.WriteLine(nameof(SelectionSort));
 		

@@ -2,7 +2,7 @@
 
 public class BubbleSort : ISorting
 {
-	public int[] Sort(int[] arr)
+	public async Task<int[]> Sort(int[] arr)
 	{
 		Console.WriteLine(nameof(BubbleSort));
 		

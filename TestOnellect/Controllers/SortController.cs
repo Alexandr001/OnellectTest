@@ -17,7 +17,7 @@ public class SortController
 		_sorting = SortFactory.GetRandomSorting();
 	}
 	
-	public async Task Text()
+	public async Task Sort()
 	{
 		if (_settings == null) {
 			Console.WriteLine("Не удалось дессериализовать json!");
@@ -28,7 +28,7 @@ public class SortController
 		Console.WriteLine("Созданный массив: ");
 		PrintArray(array);
 		
-		int[] sortedArray = _sorting.Sort(array);
+		int[] sortedArray = await _sorting.Sort(array);
 		Console.WriteLine("Отсортированный массив: ");
 		PrintArray(sortedArray);
 
